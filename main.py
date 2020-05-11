@@ -13,6 +13,11 @@ if __name__ == "__main__":
     #
     # 1. Retrieve a list of "events" associated with the given user name
     # 2. Print out the time stamp associated with the first event in that list.
+    response = requests.get("http://api.github.com/users/{}/events".format(username))
+    events = json.loads(response.content)
+
+    print(events[0]['created_at'])
+
 
     print("COMPLETE THE TODOs")
     
